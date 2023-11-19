@@ -1,0 +1,62 @@
+/* App.css */
+
+html, body {
+  height: 90%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white; /* Yellow background behind the frame */
+}
+
+.Todo-List-container {
+  background-color: yellow; /* Different background color for the frame */
+  padding: 10px;
+  border-radius: 10px; /* Add border-radius for rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle effect */
+}
+
+h1 {
+  text-align: center;
+  color: #333333;
+  padding: 10px;
+  width: 50%;
+}
+
+div {
+  margin-top: 20px;
+}
+
+input {
+  padding: 15px;
+  width: 45%; /* Adjusted width to make space for the button */
+  margin-right: 10px; /* Added right margin to create space between input and button */
+}
+
+button {
+  padding: 15px;
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background-color: #f4f4f4;
+  margin-top: 5px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: green;
+}
+
+li button {
+  background-color: #dc3545;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}

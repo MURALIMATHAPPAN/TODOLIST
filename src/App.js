@@ -1,52 +1,39 @@
 // src/App.js
 import React, { useState } from 'react';
+import axios from 'axios';
+import UserCardGrid from './UserCardGrid';
 import './App.css';
-import todoList from'./componets/TodoList'
+import './UserCardGrid.js';
 
-function App() {
-  const [tasks, setTasks] = useState([]);
-  const [newTask, setNewTask] = useState('');
 
-  const handleInputChange = (event) => {
-    setNewTask(event.target.value);
-  };
+const App = () => {
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  const addTask = () => {
-    if (newTask.trim() !== '') {
-      setTasks([...tasks, newTask]);
-      setNewTask('');
+  const getUsers = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get('https://reqres.in/api/users?page=1');
+      setUsers(response.data.data);
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
-  const removeTask = (index) => {
-    const updatedTasks = [...tasks];
-    updatedTasks.splice(index, 1);
-    setTasks(updatedTasks);
-  };
-
   return (
-    <div className="Todo-List-container">
-      <todoList/>
-      <h1>Todo List</h1>
-      <div>
-        <input
-          type="text"
-          value={newTask}
-          onChange={handleInputChange}
-          placeholder="Add a new task"
-        />
-        <button onClick={addTask}>Add</button>
-      </div>
-      <ul>
-        {tasks.map((task, index) => (
-          <li key={index}>
-            {task}
-            <button onClick={() => removeTask(index)}>Remove</button>
-          </li>
-        ))}
-      </ul>
+    <div className="app">
+      <nav className="navbar">
+        <span className="brand-name">Your Brand</span>
+        <button className="get-users-btn" onClick={getUsers} disabled={loading}>
+          Get Users
+        </button>
+      </nav>
+      {loading && <div className="loader">Loading...</div>}
+      <UserCardGrid users={users} />
     </div>
   );
-}
+};
 
 export default App;

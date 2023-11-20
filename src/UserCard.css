@@ -1,0 +1,65 @@
+/* src/UserCard.css */
+.user-card {
+  border: 1px solid #ddd;
+  padding: 16px;
+  margin: 16px;
+  text-align: center;
+}
+
+.user-card img {
+  max-width: 100%;
+  border-radius: 50%;
+  margin-bottom: 8px;
+}
+
+.user-card h2 {
+  margin: 8px 0;
+}
+
+.user-card p {
+  color: #555;
+}
+
+/* src/UserCardGrid.css */
+.user-card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* src/App.css */
+.app {
+  text-align: center;
+}
+
+.navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-name {
+  font-size: 1.5rem;
+}
+
+.get-users-btn {
+  padding: 8px 16px;
+  background-color: #61dafb;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.get-users-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.loader {
+  font-size: 20px;
+  margin: 20px;
+}
